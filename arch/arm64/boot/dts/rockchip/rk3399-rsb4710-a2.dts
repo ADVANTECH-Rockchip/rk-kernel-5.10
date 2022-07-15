@@ -331,18 +331,11 @@
 	
 	hdmi_sound: hdmi-sound {
 		status = "okay";
-		compatible = "simple-audio-card";
-		simple-audio-card,format = "i2s";
-		simple-audio-card,mclk-fs = <256>;
-		simple-audio-card,name = "rockchip,hdmi";
-
-		simple-audio-card,cpu {
-			sound-dai = <&i2s2>;
-		};
-		simple-audio-card,codec {
-			sound-dai = <&hdmi>;
-		};
 	};
+
+	dw_hdmi_audio: dw-hdmi-audio {
+                status = "okay";
+        };
 
 	clkin_gmac: external-gmac-clock {
 		compatible = "fixed-clock";
@@ -1172,7 +1165,7 @@
 };
 
 &usbdrd_dwc3_0 {
-	dr_mode = "otg";
+	dr_mode = "peripheral";
 	maximum-speed = "high-speed";
 	status = "okay";
 };
